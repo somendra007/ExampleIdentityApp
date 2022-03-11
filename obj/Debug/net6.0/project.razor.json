@@ -16308,6 +16308,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Dotnet Project\\My Projects\\WebApp\\ExampleIdentityApp\\Pages\\Account\\Index.cshtml",
+      "TargetPath": "Pages\\Account\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Dotnet Project\\My Projects\\WebApp\\ExampleIdentityApp\\Pages\\Shared\\_Layout.cshtml",
       "TargetPath": "Pages\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
