@@ -1,4 +1,27 @@
 ﻿@page
 @model ExampleIdentityApp.Pages.Account.IndexModel
 @{
+    ViewData["Title"] = "Register";
 }
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="@Model.registerModel.Email"></label>
+                <input type="text" asp-for="@Model.registerModel.Email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.registerModel.Password"></label>
+                <input type="password" asp-for="@Model.registerModel.Password" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.registerModel.ConfirmPassword"></label>
+                <input type="password" asp-for="@Model.registerModel.ConfirmPassword" class="form-control">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" asp-page-handler="Register">Register</button>
+            </div>
+        </form>
+    </div>
+</div>

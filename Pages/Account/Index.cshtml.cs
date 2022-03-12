@@ -1,4 +1,6 @@
+using ExampleIdentityApp.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ExampleIdentityApp.Pages.Account
@@ -12,9 +14,27 @@ namespace ExampleIdentityApp.Pages.Account
             _usermanager = userManager;
             _signInManager = signInManager;
         }
+        [BindProperty]
+        public RegisterModel registerModel { get; set; }
         public void OnGet()
         {
 
+        }
+
+        public async Task<IActionResult> OnPostRegister()
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new IdentityUser { UserName = registerModel.Email, Email = registerModel.Email };
+                var result = await _usermanager.CreateAsync(user, registerModel.Password);
+
+                if (result.Succeeded)
+                {
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    
+                }
+            }
+            return RedirectToPage("/Index");
         }
     }
 }
