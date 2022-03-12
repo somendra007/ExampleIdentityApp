@@ -31,10 +31,15 @@ namespace ExampleIdentityApp.Pages.Account
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    
+                    var username = User.Identity.Name;
                 }
             }
             return RedirectToPage("/Index");
         }
+        public async void Logout()
+        {
+            await _signInManager.SignOutAsync();
+        }
+
     }
 }
